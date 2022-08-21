@@ -12,7 +12,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         file = 'parser_hh/management/commands/parser.py'
         file_json = 'database.json'
-        # subprocess.run(f"python {file}", shell=True)
+        subprocess.run(f"python {file}", shell=True)
         with open(file_json, 'r') as database:
             data = json.load(database)
 
@@ -90,3 +90,4 @@ class Command(BaseCommand):
             if value['snippet'][1]:
                 vacancy.responsibility = value['snippet'][1]
                 vacancy.save()
+

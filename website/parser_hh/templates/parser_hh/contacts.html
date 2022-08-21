@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+                <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div>
+                    <p class="lead mb-5">По всем вопросам, прошу обращаться в
+                    Университет Искусственного интеллекта.<br>Это они меня учили.
+                    </p>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </section>
+            <hr class="m-auto" />
+        </div>
+{% endblock %}
+

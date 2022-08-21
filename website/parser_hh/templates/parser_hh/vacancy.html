@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+                <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h5 class="mb-0">
+                        Что есть на рынке
+                        <span class="lead mb-5 colortext"><b>вакансий</b></span>
+                    </h5>
+                    <br><br>
+                    <p class="lead mb-5">По Вашему запросу найдено - вакансий;<br>
+                        Средняя заработная плата составляет - рублей;<br>
+                        Предъявляются следующие требования:<br></p>
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Требование</th>
+                                    <th scope="col">Кол-во раз</th>
+                                    <th scope="col">% вакансий</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                      <td>SQL</td>
+                                      <td>100</td>
+                                      <td>100</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-auto" />
+        </div>
+{% endblock %}
