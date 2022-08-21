@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+                <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Парсер
+                        <span class="lead mb-5 colortext"><b>вакансий</b></span>
+                    </h1>
+                    <br><br>
+                    <p class="lead mb-5">Что делает этот парсер: В форме,
+                        Вы можете создать запрос для сайта <b><span class="colortext">hh.ru</span></b>.
+                        Парсер отберет все ВАКАНСИИ, попадающие под условие
+                        в форме, после чего покажет результат.</p>
+                    <!--            1-->
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">
+                        Форма для поиска:
+                    </h3>
+                    <br><br>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control"
+                               name="keywords"
+                               placeholder="Ключевые слова через пробел (например, java разработчик или директор)"
+                               aria-label="Recipient's username"
+                               aria-describedby="button-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control"
+                               name="region"
+                               placeholder="Регион (например Москва)"
+                               aria-label="Recipient's username"
+                               aria-describedby="button-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Тип занятости</label>
+                      </div>
+                      <select class="custom-select" name="type_of_employment" id="inputGroupSelect01">
+                          <option selected> Выберите...</option>
+                          <option value="1">Полная занятость</option>
+                          <option value="2">Частичная занятость</option>
+                          <option value="4">Волонтерство</option>
+                          <option value="5">Стажировка</option>
+                          <option value="3">Проектная работа/разовое задание</option>
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">График работы</label>
+                      </div>
+                      <select class="custom-select" name="schedule" id="inputGroupSelect02">
+                          <option selected> Выберите...</option>
+                          <option value="1">Полный день</option>
+                          <option value="2">Сменный график</option>
+                          <option value="4">Гибкий график</option>
+                          <option value="5">Удаленная работа</option>
+                          <option value="3">Вахтовый метод</option>
+                      </select>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark">Запустить поиск</button>
+                </div>
+                    <!--            2-->
+                </div>
+            </section>
+        </div>
+{% endblock %}

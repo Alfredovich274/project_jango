@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+                <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h5 class="mb-0">
+                        Поиск дал следующие
+                        <span class="lead mb-5 colortext"><b>результаты</b></span>
+                    </h5>
+                    <br><br>
+                    <p class="lead mb-5">
+                    <table class="table table-borderless">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Вакансия</th>
+                                    <th scope="col">Что делать</th>
+                                    <th scope="col">Ссылка</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in data %}
+                            <tr>
+                                <td>{{item.name}}</td>
+                                <td>{{item.responsibility}}</td>
+                                <td>{{item.url}}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+            </section>
+            <hr class="m-auto" />
+        </div>
+{% endblock %}
