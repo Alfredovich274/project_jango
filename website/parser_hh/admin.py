@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import Company, City, Vacancy, Skill, Salary, Schedule,\
-    Experience, Employment
+    Experience, Employment, Param
 
 
 admin.site.register(Company)
@@ -13,3 +13,4 @@ admin.site.register(Salary)
 admin.site.register(Schedule)
 admin.site.register(Experience)
 admin.site.register(Employment)
+admin.site.register(Param)

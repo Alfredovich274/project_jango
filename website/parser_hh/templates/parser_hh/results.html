@@ -17,14 +17,26 @@
                                     <th scope="col">Вакансия</th>
                                     <th scope="col">Что делать</th>
                                     <th scope="col">Ссылка</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                            {% for item in data %}
+                            {% for item in object_list %}
                             <tr>
                                 <td>{{item.name}}</td>
                                 <td>{{item.responsibility}}</td>
                                 <td>{{item.url}}</td>
+                                <td>
+                                    <a  href="{% url 'parser:vacancy' pk=item.pk %}">
+                                        Описание
+                                    </a>
+                                </td>
+                                <td>
+                                    <a  href="{% url 'parser:delete-vacancy' pk=item.pk %}">
+                                        Удалить
+                                    </a>
+                                </td>
                             </tr>
                             {% endfor %}
                             </tbody>

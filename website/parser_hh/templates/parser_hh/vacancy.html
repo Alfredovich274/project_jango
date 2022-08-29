@@ -5,32 +5,35 @@
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-                    <h5 class="mb-0">
-                        Что есть на рынке
-                        <span class="lead mb-5 colortext"><b>вакансий</b></span>
-                    </h5>
-                    <br><br>
-                    <p class="lead mb-5">По Вашему запросу найдено - вакансий;<br>
-                        Средняя заработная плата составляет - рублей;<br>
-                        Предъявляются следующие требования:<br></p>
-                    <div class="table-responsive">
-                        <table class="table table-borderless">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">Требование</th>
-                                    <th scope="col">Кол-во раз</th>
-                                    <th scope="col">% вакансий</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    <tr>
-                                      <td>SQL</td>
-                                      <td>100</td>
-                                      <td>100</td>
-                                    </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h4 class="mb-0">
+                        {{object.name}}
+                    </h4>
+                    <p class="lead mb-5">
+                        <dl>
+                            <dt>Компания</dt><dd>{{object.company}}</dd>
+                            <dt>Описание</dt><dd>{{object.description}}</dd>
+                            <dt>Трудоустройство</dt>
+                            <dd>{{object.employment}}</dd>
+                            <dt>Опыт</dt><dd>{{object.experience}}</dd>
+                            <dt>Величина зарплаты</dt><dd>{{object.salary}}</dd>
+                            <dt>Тип занятости</dt><dd>{{object.schedule}}</dd>
+                            <dt>Что нужно</dt><dd>{{object.requirement}}</dd>
+                            <dt>Чем заниматься</dt>
+                            <dd>{{object.responsibility}}</dd>
+                            <dt>Роли</dt><dd>{{object.role}}</dd>
+                            <dt>Специализация</dt>
+                            {% for specialization in object.specialization.all %}
+                                <li>{{specialization}}</li>
+                            {% endfor %}
+                            <dt>Ссылка на страницу вакансии в hh.ru</dt>
+                            <dd>{{object.url}}</dd>
+                            <dt>Необходимые навыки</dt>
+                            {% for skill in object.skill.all %}
+                                <li>{{skill}}</li>
+                            {% endfor %}
+                        </dl>
+                        <a href="{% url 'parser:results' %}">Назад</a>
+                    </p>
                 </div>
             </section>
             <hr class="m-auto" />

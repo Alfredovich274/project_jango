@@ -5,64 +5,72 @@
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-                    <h1 class="mb-0">
+                    <h2 class="mb-0">
                         Парсер
                         <span class="lead mb-5 colortext"><b>вакансий</b></span>
-                    </h1>
+                    </h2>
                     <br><br>
                     <p class="lead mb-5">Что делает этот парсер: В форме,
                         Вы можете создать запрос для сайта <b><span class="colortext">hh.ru</span></b>.
                         Парсер отберет все ВАКАНСИИ, попадающие под условие
                         в форме, после чего покажет результат.</p>
                     <!--            1-->
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">
-                        Форма для поиска:
-                    </h3>
-                    <br><br>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control"
-                               name="keywords"
-                               placeholder="Ключевые слова через пробел (например, java разработчик или директор)"
-                               aria-label="Recipient's username"
-                               aria-describedby="button-addon2">
+                    <div class="flex-grow-1">
+                    <br>
+                    <h4>Полученные запросы</h4>
+                        <table class="table table-borderless">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                    <th scope="col">5</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if object_list%}
+                                    {% for items in object_list %}
+                                        <tr>
+                                            {% if items.key_words%}
+                                                <td>{{items.key_words}}</td>
+                                            {% else %}
+                                                <td></td>
+                                            {% endif %}
+                                            {% if items.salary%}
+                                                <td>{{items.salary}}</td>
+                                            {% else %}
+                                                <td></td>
+                                            {% endif %}
+                                            {% if items.city%}
+                                                <td>{{items.city}}</td>
+                                            {% else %}
+                                                <td></td>
+                                            {% endif %}
+                                            {% if items.schedule%}
+                                                <td>{{items.schedule}}</td>
+                                            {% else %}
+                                                <td></td>
+                                            {% endif %}
+                                            {% if items.experience%}
+                                                <td>{{items.experience}}</td>
+                                            {% else %}
+                                                <td></td>
+                                            {% endif %}
+                                            <td>
+                                                <a  href="{% url 'parser:delete-params' pk=items.pk %}">
+                                                    Удалить
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    Нет данных
+                                {% endif %}
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control"
-                               name="region"
-                               placeholder="Регион (например Москва)"
-                               aria-label="Recipient's username"
-                               aria-describedby="button-addon2">
-                    </div>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Тип занятости</label>
-                      </div>
-                      <select class="custom-select" name="type_of_employment" id="inputGroupSelect01">
-                          <option selected> Выберите...</option>
-                          <option value="1">Полная занятость</option>
-                          <option value="2">Частичная занятость</option>
-                          <option value="4">Волонтерство</option>
-                          <option value="5">Стажировка</option>
-                          <option value="3">Проектная работа/разовое задание</option>
-                      </select>
-                    </div>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">График работы</label>
-                      </div>
-                      <select class="custom-select" name="schedule" id="inputGroupSelect02">
-                          <option selected> Выберите...</option>
-                          <option value="1">Полный день</option>
-                          <option value="2">Сменный график</option>
-                          <option value="4">Гибкий график</option>
-                          <option value="5">Удаленная работа</option>
-                          <option value="3">Вахтовый метод</option>
-                      </select>
-                    </div>
-                    <button type="button" class="btn btn-outline-dark">Запустить поиск</button>
-                </div>
-                    <!--            2-->
                 </div>
             </section>
         </div>
