@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+                <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h2 class="mb-0">
+                        Парсер
+                        <span class="lead mb-5 colortext"><b>вакансий</b></span>
+                    </h2>
+                    <br><br>
+                    <!--            1-->
+                    <div class="flex-grow-1">
+                    <br>
+                    <h4>Удалить вакансию из списка, Вы уверены?</h4>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td>{{object.company}}</td>
+                                    <td>{{object.name}}</td>
+                                    <td>{{object.city}}</td>
+                                    <td>{{object.url}}</td>
+                                    <td>{{object.description}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-dark">Да</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+{% endblock %}

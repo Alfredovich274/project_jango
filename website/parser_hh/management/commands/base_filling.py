@@ -60,9 +60,12 @@ class Command(BaseCommand):
             if not Employment.objects.filter(name=value['employment'][0]).exists():
                 Employment.objects.create(name=value['employment'][0])
             # Добавляем специализацию
+            specs_id = []
             for spec in value['specializations']:
                 if not Specialization.objects.filter(name=spec).exists():
                     Specialization.objects.create(name=spec)
+                spec_id = Specialization.objects.get(name=spec).id
+                specs_id.append(spec_id)
             # Добавляем вакансию
             salary_id = Salary.objects.get(name=data_salary).id
             company_id = Company.objects.get(name=value['employer'][0]).id
@@ -80,6 +83,7 @@ class Command(BaseCommand):
                                        role=value['professional_roles'][0])
             vacancy = Vacancy.objects.get(url=value['alternate_url'][0])
             vacancy.skill.set(skills_id)
+            vacancy.specialization.set(specs_id)
             # vacancy.save()
             if value['description'][0]:
                 vacancy.description = value['description'][0]
